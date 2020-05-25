@@ -65,12 +65,12 @@
 }
 
 .check-box {
-	width: 40px;
-    height: 40px;
+	width: 10vmin;
+    height: 10vmin;
     border-radius: 50%;
     position: absolute;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
+    top: calc(50% - 5vmin);
+    left: calc(50% - 5vmin);
 	background-color: var(--pure-white);
 	box-shadow: inset 0px 0px 2px 1px var(--pure-black);
 }
@@ -85,10 +85,9 @@
 }
 
 .text-area {
-	width: 80vmin;
-
-	margin-right: 54px;
-	padding: 5px;
+	width: 75vmin;
+	margin: 10px 62px 10px 5px;
+	overflow: hidden;
 }
 
 .menu-btn {
@@ -97,7 +96,7 @@
 
     position: absolute;
     top: calc(50% - 25px);
-	right: 4px;
+	right: 10px;
 	
 	border-radius: 50%;
 	box-shadow: 0px 0px 2px 0px var(--pure-black);

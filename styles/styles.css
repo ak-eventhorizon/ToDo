@@ -1,3 +1,13 @@
+/****************************** roboto-regular - latin_cyrillic ******************************/
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Roboto'), local('Roboto-Regular'),
+		 url('../fonts/roboto-v20-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		 url('../fonts/roboto-v20-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
 /****************************** COLOR SCHEME - BEGIN ******************************/
 :root {
 	--pure-black: #000000; 
@@ -6,6 +16,7 @@
 	--btn-green: #008000aa;
 	--btn-focus-green: #008000cc;
 	--checkbox-checked: #484f57;
+	--editable-background: #e4e4e4;
 
 	--item-red: #f44034;
 	--item-yellow: #dec914;
@@ -26,12 +37,17 @@
     text-align: center;
 }
 
+#list {
+	display: flex;
+    flex-direction: column;
+}
+
 .item {
 	/* подумать не установить ли фикс высоту - 100px */
 	height: 30vmin;
 	max-height: 170px;
 
-	margin: 0.5rem;
+	margin: 0.5rem 0.5rem 0;
 
 	display: flex;
 	overflow: hidden;
@@ -73,6 +89,7 @@
     left: calc(50% - 5vmin);
 	background-color: var(--pure-white);
 	box-shadow: inset 0px 0px 2px 1px var(--pure-black);
+	cursor: pointer;
 }
 
 .check-box--checked {
@@ -82,35 +99,6 @@
 	background-position: center center;
 
 	background-color: var(--checkbox-checked);
-}
-
-.text-area {
-	width: 75vmin;
-	margin: 10px 62px 10px 5px;
-	overflow: hidden;
-}
-
-.menu-btn {
-	width: 50px;
-	height: 50px;
-
-    position: absolute;
-    top: calc(50% - 25px);
-	right: 10px;
-	
-	border-radius: 50%;
-	box-shadow: 0px 0px 2px 0px var(--pure-black);
-
-	background-image: url(../icons/bars.svg);
-	background-size: 60%;
-	background-repeat: no-repeat;
-	background-position: center center;
-    background-color: #cbcbcb;
-}
-
-.menu-btn:active{
-	box-shadow: 0px 0px 0px 0px var(--pure-black);
-	background-size: 58%;
 }
 
 /*textarea reset styles*/
@@ -124,6 +112,51 @@ textarea {
     box-shadow: none;
 
     resize: none; /*remove the resize handle on the bottom right*/
+}
+
+.text-area {
+	width: 75vmin;
+	margin: 10px 64px 10px 5px;
+	overflow: hidden;
+	border-radius: 5px;
+	text-align: center;
+
+	font-family: Roboto, Helvetica, sans-serif;
+	font-size: 1rem;
+
+    background-color: var(--editable-background);
+	border: 2px solid #00000011;
+	color: var(--pure-black);
+}
+
+.text-area:read-only {
+	background-color: var(--item-background);
+	border-color: var(--item-background);
+	text-decoration: line-through;
+}
+
+.menu-btn {
+	width: 50px;
+	height: 50px;
+
+    position: absolute;
+    top: calc(50% - 25px);
+	right: 10px;
+	
+	border-radius: 50%;
+	box-shadow: 0px 0px 2px 0px var(--pure-black);
+	cursor: pointer;
+
+	background-image: url(../icons/bars.svg);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-color: #cbcbcb;
+}
+
+.menu-btn:active{
+	box-shadow: 0px 0px 0px 0px var(--pure-black);
+	background-size: 58%;
 }
 
 #btn {

@@ -1,12 +1,9 @@
-/****************************** roboto-regular - latin_cyrillic ******************************/
 @font-face {
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Roboto'), local('Roboto-Regular'),
-		 url('../fonts/roboto-v20-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-		 url('../fonts/roboto-v20-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
+    font-family: 'HandwritingBook';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/HandwritingBook.ttf') format('truetype');
+}
 
 /****************************** COLOR SCHEME - BEGIN ******************************/
 :root {
@@ -122,12 +119,12 @@ textarea {
 	border-radius: 5px;
 	text-align: center;
 
-	font-family: Roboto, Helvetica, sans-serif;
-	font-size: 1rem;
+	font-family: HandwritingBook, Helvetica, sans-serif;
+	font-size: 1.2rem;
 
     background-color: var(--editable-background);
 	border: 2px solid #00000011;
-	color: var(--pure-black);
+	color: var(--checkbox-checked);
 }
 
 .text-area:read-only {
@@ -145,7 +142,7 @@ textarea {
 	right: 10px;
 	
 	border-radius: 50%;
-	box-shadow: 0px 0px 2px 0px var(--pure-black);
+	box-shadow: 0px 0px 3px 0px var(--pure-black);
 	cursor: pointer;
 
 	background-image: url(../icons/bars.svg);
@@ -155,13 +152,13 @@ textarea {
     background-color: var(--btn-grey);
 }
 
-.menu-btn--clicked {
-	background-image: url(../icons/cross.svg);
+.menu-btn:active{
+	box-shadow: 0px 0px 1px 0px var(--pure-black);
+	background-size: 58%;
 }
 
-.menu-btn:active{
-	box-shadow: 0px 0px 0px 0px var(--pure-black);
-	background-size: 58%;
+.menu-btn--clicked {
+	background-image: url(../icons/cross.svg);
 }
 
 .context-menu {
@@ -189,13 +186,18 @@ textarea {
 	border-radius: 50%;
 	margin-right: 1.5vmin;
 
-    box-shadow: 0px 0px 2px 0px var(--pure-black);
+    box-shadow: 0px 0px 3px 0px var(--pure-black);
     cursor: pointer;
     
 	background-color: var(--btn-grey);
 	background-size: 60%;
 	background-repeat: no-repeat;
     background-position: center center;
+}
+
+.context-btn:active{
+	box-shadow: 0px 0px 1px 0px var(--pure-black);
+	background-size: 58%;
 }
 
 .context-btn--del {
@@ -243,13 +245,18 @@ textarea {
 	border-radius: 50%;
 	margin-right: 1.5vmin;
 
-    box-shadow: 0px 0px 2px 0px var(--pure-black);
+    box-shadow: 0px 0px 3px 0px var(--pure-black);
     cursor: pointer;
     
 	background-color: var(--btn-grey);
 	background-size: 60%;
 	background-repeat: no-repeat;
     background-position: center center;
+}
+
+.color-btn:active{
+	box-shadow: 0px 0px 1px 0px var(--pure-black);
+	background-size: 58%;
 }
 
 .color-btn--red {

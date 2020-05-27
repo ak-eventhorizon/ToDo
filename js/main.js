@@ -1,9 +1,9 @@
 'use strict';
 
+import {createListItem} from './modules/createListItem.js';
+
 //************ event handlers on all menu buttons ************
-
 let menuButtons = document.querySelectorAll('.menu-btn');
-
 for (let i = 0; i < menuButtons.length; i++) {
     menuButtons[i].onclick = function(event){
 
@@ -19,17 +19,11 @@ for (let i = 0; i < menuButtons.length; i++) {
         if(!currentColorMenu.classList.contains('color-menu--hidden')){
             currentColorMenu.classList.toggle('color-menu--hidden');
         }
-
-        console.log(event);
-        console.log(this);
-        console.log(this.id.split('-')[1]);
     };
 }
 
 //************ event handlers on all context-menu-delete buttons ************
-
 let deleteButtons = document.querySelectorAll('.context-btn--del');
-
 for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].onclick = function(){
 
@@ -41,9 +35,7 @@ for (let i = 0; i < deleteButtons.length; i++) {
 }
 
 //************ event handlers on all context-menu-down buttons ************
-
 let downButtons = document.querySelectorAll('.context-btn--down');
-
 for (let i = 0; i < downButtons.length; i++) {
     downButtons[i].onclick = function(){
 
@@ -62,9 +54,7 @@ for (let i = 0; i < downButtons.length; i++) {
 }
 
 //************ event handlers on all context-menu-up buttons ************
-
 let upButtons = document.querySelectorAll('.context-btn--up');
-
 for (let i = 0; i < upButtons.length; i++) {
     upButtons[i].onclick = function(){
 
@@ -83,9 +73,7 @@ for (let i = 0; i < upButtons.length; i++) {
 }
 
 //************ event handlers on all context-menu-color buttons ************
-
 let colorButtons = document.querySelectorAll('.context-btn--color');
-
 for (let i = 0; i < colorButtons.length; i++) {
     colorButtons[i].onclick = function(){
 
@@ -96,9 +84,7 @@ for (let i = 0; i < colorButtons.length; i++) {
 }
 
 //************ event handlers on all color-change buttons ************
-
 let colorChangeButtons = document.querySelectorAll('.color-btn');
-
 for (let i = 0; i < colorChangeButtons.length; i++) {
     colorChangeButtons[i].onclick = function(){
 
@@ -124,9 +110,7 @@ for (let i = 0; i < colorChangeButtons.length; i++) {
 }
 
 //************ event handlers on all check boxes ************
-
 let checkBoxes = document.querySelectorAll('.check-box');
-
 for (let i = 0; i < checkBoxes.length; i++) {
     checkBoxes[i].onclick = function(){
        this.classList.toggle('check-box--checked');
@@ -138,5 +122,59 @@ for (let i = 0; i < checkBoxes.length; i++) {
     };   
 }
 
+//************ event handlers on main ADD button ************
+let mainBtn = document.getElementById('main-btn');
+mainBtn.onclick = function(){
 
-// order change - document.getElementById("myRedDIV").style.order = "4";
+    // localStorage.counter++;
+
+    let list = document.getElementById('list');
+    let elem = createListItem(listArr[3]);
+
+    list.appendChild(elem);
+};
+
+
+
+
+//******************** localStorage setup ********************
+//************************************************************
+
+if(!localStorage.counter){
+ localStorage.counter = 0;
+}
+
+//array example
+let listArr = [
+    {
+        id: 1,
+        order: 1,
+        color: 'red',
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore officia perferendis architecto se',
+        checked: false
+    },
+    {
+        id: 2,
+        order: 2,
+        color: 'yellow',
+        content: 'Привет! Я блокнотик и мы будем записывать сюда все умные мысли, какие придут в голову!',
+        checked: true
+    },
+    {
+        id: 3,
+        order: 3,
+        color: 'red',
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore officia',
+        checked: true
+    },
+    {
+        id: 4,
+        order: 4,
+        color: 'none',
+        content: 'Всего три слова',
+        checked: false
+    }
+];
+
+
+// console.log(createListItem(listArr[0]));

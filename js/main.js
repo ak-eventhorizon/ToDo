@@ -5,7 +5,7 @@ import {createListItem} from './modules/createListItem.js';
 //************ event handlers on all menu buttons ************
 let menuButtons = document.querySelectorAll('.menu-btn');
 for (let i = 0; i < menuButtons.length; i++) {
-    menuButtons[i].onclick = function(event){
+    menuButtons[i].onclick = function(){
 
         this.classList.toggle('menu-btn--clicked');
 

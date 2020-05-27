@@ -1,6 +1,7 @@
 'use strict';
 
 import {createListItem} from './modules/createListItem.js';
+import {addEventListenersOnItem} from './modules/addEventListenersOnItem.js';
 
 //************ event handlers on all menu buttons ************
 let menuButtons = document.querySelectorAll('.menu-btn');
@@ -130,6 +131,8 @@ mainBtn.onclick = function(){
 
     let list = document.getElementById('list');
     let elem = createListItem(listArr[3]);
+
+    addEventListenersOnItem(listArr[3]);
 
     list.appendChild(elem);
 };

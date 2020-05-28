@@ -132,7 +132,7 @@ mainBtn.onclick = function(){
     let list = document.getElementById('list');
     let elem = createListItem(listArr[3]);
 
-    addEventListenersOnItem(listArr[3]);
+    // addEventListenersOnItem(listArr[3]);
 
     list.appendChild(elem);
 };
@@ -143,9 +143,13 @@ mainBtn.onclick = function(){
 //******************** localStorage setup ********************
 //************************************************************
 
-if(!localStorage.counter){
- localStorage.counter = 0;
-}
+// if(!localStorage.counter){
+//  localStorage.counter = 0;
+// }
+
+// if (!localStorage.toDo){
+//     localStorage.toDo = [0,1,2];
+// }
 
 //array example
 let listArr = [

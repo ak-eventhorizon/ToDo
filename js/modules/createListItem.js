@@ -1,6 +1,5 @@
 'use strict';
 
-
 // IN - object with list item parameters
 // {
 //     id: 1,
@@ -148,7 +147,6 @@ function createListItem(obj){
     colorMenu.appendChild(colorButtonNone);
 
     item.appendChild(colorMenu);
-
 
     return item;
 }

@@ -1,5 +1,8 @@
 'use strict';
 
+import {putToLocalStorage} from './localStorage.js';
+import {getFromLocalStorage} from './localStorage.js';
+
 // IN - object with list item parameters
 // {
 //     id: 1,
@@ -32,6 +35,20 @@ function addEventListenersOnItem(obj){
         if(!currentColorMenu.classList.contains('color-menu--hidden')){
         currentColorMenu.classList.toggle('color-menu--hidden');
         }
+
+        //close all other menus if they opened
+        let tempListArr = getFromLocalStorage();
+        for (let i = 1; i < tempListArr.length; i++) {
+            if( i !== id && tempListArr[i] !== null) {
+                let currentMenuBtn = document.getElementById(`menu_btn-${i}`);
+                let currentContextMenu = document.getElementById(`context_menu-${i}`);
+                let currentColorMenu = document.getElementById(`color_menu-${i}`);
+
+                currentMenuBtn.classList = 'menu-btn';
+                currentContextMenu.classList = 'context-menu context-menu--hidden';
+                currentColorMenu.classList = 'color-menu color-menu--hidden';
+            }
+        }
     };
 
 
@@ -41,6 +58,10 @@ function addEventListenersOnItem(obj){
 
         let currentItem = document.getElementById(`item-${id}`);
         currentItem.parentNode.removeChild(currentItem);
+
+        let tempListArr = getFromLocalStorage();
+        tempListArr[id] = null;
+        putToLocalStorage(tempListArr);
     };
     
 
@@ -54,10 +75,22 @@ function addEventListenersOnItem(obj){
         for (let i = 0; i < items.length; i++) {
             if (items[i].style.order === String(+currentItem.style.order + 1)) {
                 [currentItem.style.order, items[i].style.order] = 
-                [items[i].style.order, currentItem.style.order]; // swap values <-->
+                [items[i].style.order, currentItem.style.order]; // swap values in DOM <-->
                 break;
             } 
         }
+//***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
+        // swap values in objects <-->
+        let tempListArr = getFromLocalStorage();
+        for (let i = 1; i < tempListArr.length; i++) {
+            if(tempListArr[i].order === tempListArr[id].order + 1) {
+                tempListArr[i].order--; 
+                tempListArr[id].order++;
+                break;
+            }
+        }
+        putToLocalStorage(tempListArr);
+
     };
 
     
@@ -75,6 +108,18 @@ function addEventListenersOnItem(obj){
                 break;
             } 
         }
+
+//***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
+        // swap values in objects <-->
+        let tempListArr = getFromLocalStorage();
+        for (let i = 1; i < tempListArr.length; i++) {
+            if(tempListArr[i].order === tempListArr[id].order - 1) {
+                tempListArr[i].order++; 
+                tempListArr[id].order--;
+                break;
+            }
+        }
+        putToLocalStorage(tempListArr);
     };
 
 

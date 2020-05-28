@@ -6,21 +6,25 @@ import {putToLocalStorage} from './modules/localStorage.js';
 import {getFromLocalStorage} from './modules/localStorage.js';
 
 
-//************* localStorage, ArrayCache and app state initialize **************
+//************* localStorage, ArrayCache and App state initialize **************
 //******************************************************************************
 
 if(!localStorage.list){
     localStorage.list = '[0]';
 }
 
-let listArrCached = getFromLocalStorage();
+// arr[0] - counter
+// arr[1]...arr[n] - objects
+// ID - equal index in arr
 
+let listArrCache = getFromLocalStorage();
 let listNode = document.getElementById('list');
-for (let i = 1; i < listArrCached.length; i++) {
-    if(listArrCached[i] !== undefined) {
-        let elem = createListItem(listArrCached[i]);
+
+for (let i = 1; i < listArrCache.length; i++) {
+    if(listArrCache[i] !== null) {
+        let elem = createListItem(listArrCache[i]);
         listNode.appendChild(elem);
-        addEventListenersOnItem(listArrCached[i]);
+        addEventListenersOnItem(listArrCache[i]);
     }
 }
 
@@ -29,32 +33,31 @@ for (let i = 1; i < listArrCached.length; i++) {
 let mainBtn = document.getElementById('main-btn');
 mainBtn.onclick = function(){
 
-    // arr[0] - counter, arr[1]...arr[n] - objects
-    // ID - equal index in arr
+    let tempListArr = getFromLocalStorage();
 
-    listArrCached[0]++;
+    tempListArr[0]++;
 
     let newElement = {
-        id: listArrCached[0],
-        order: listArrCached[0],
+        id: tempListArr[0],
+        order: tempListArr[0],
         color: 'none',
         content: '',
         checked: false
     };
 
-    listArrCached.push(newElement);
-    putToLocalStorage(listArrCached);
+    tempListArr.push(newElement);
+    putToLocalStorage(tempListArr);
 
-    //last (just pushed) array element creation
-    let elem = createListItem(listArrCached[listArrCached.length-1]);
+    //new (just pushed in array) element creation in DOM
+    let elem = createListItem(newElement);
     listNode.appendChild(elem);
-    addEventListenersOnItem(listArrCached[listArrCached.length-1]);
+    addEventListenersOnItem(newElement);
 };
 
 
 
 
-// listArrCached example
+// listArrCache example
 // arr[0] - counter, arr[1]...arr[n] - objects
 // ID - equal index in arr
 // let listArr = [

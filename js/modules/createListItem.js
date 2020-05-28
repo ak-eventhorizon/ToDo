@@ -82,6 +82,7 @@ function createListItem(obj){
     textArea.className = 'text-area';
     textArea.spellcheck = false;
     textArea.maxLength = 100;
+    textArea.readOnly = checked ? true : false;
     textArea.innerText = content;
 
     item.appendChild(textArea);
@@ -133,7 +134,7 @@ function createListItem(obj){
     colorButtonRed.classList = 'color-btn color-btn--red';
 
     colorButtonYellow.id = `color_btn_yellow-${id}`;
-    colorButtonYellow.classList = 'color-btn color-btn--yello';
+    colorButtonYellow.classList = 'color-btn color-btn--yellow';
 
     colorButtonGreen.id = `color_btn_green-${id}`;
     colorButtonGreen.classList = 'color-btn color-btn--green';

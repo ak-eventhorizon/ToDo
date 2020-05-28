@@ -4,14 +4,14 @@
 // {
 //     id: 1,
 //     order: 1,
-//     color: 'red',
-//     content: 'Всего три слова',
+//     color: 'red' | 'yellow '| 'green' | 'none',
+//     content: 'string up to 100 chars',
 //     checked: false
 // }
 
 
 // OUT - undefined
-// function added all event listeners on 'item-id' item 
+// function add all event listeners on DOM element 'item-ID'
 
 
 function addEventListenersOnItem(obj){

@@ -4,20 +4,20 @@
 // {
 //     id: 1,
 //     order: 1,
-//     color: 'red',
-//     content: 'Всего три слова',
+//     color: 'red' | 'yellow '| 'green' | 'none',
+//     content: 'string up to 100 chars',
 //     checked: false
 // }
 
 
-// OUT - DOM element
+// OUT - DOM element 'item-ID'
 /* <div id="item-1" class="item" style="order: 1;">
 
 <div id="check_area-1" class="check-area check-area--red">
     <div id="check_box-1" class="check-box"></div>
 </div>
 
-<textarea id="text_area-1" class="text-area" spellcheck="false" maxlength="100">Всего три слова</textarea>
+<textarea id="text_area-1" class="text-area" spellcheck="false" maxlength="100">string up to 100 chars</textarea>
 
 <div id="menu_btn-1" class="menu-btn"></div>
 

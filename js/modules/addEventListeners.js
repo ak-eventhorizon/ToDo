@@ -16,7 +16,7 @@ import {clearLocalStorage} from './localStorage.js';
 // }
 
 // OUT - undefined
-// function add all event listeners on DOM element 'item-ID'
+// function add all needed event listeners on DOM element 'item-ID'
 
 function addEventListenersOnItem(obj){
 

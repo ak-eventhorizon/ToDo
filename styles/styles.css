@@ -204,7 +204,7 @@ textarea {
 	position: absolute;
 	width: 15vmin;
     height: 15vmin;
-	left: -17vmin;
+	left: -17.5vmin;
 	
 	background-image: url(../icons/delete.svg);
 }
@@ -306,11 +306,11 @@ textarea {
 
 #clear-btn {
 	display: block;
-	margin-top: -16.5vmin;
+	margin-top: -17.5vmin;
 	margin-left: 15%;
 
-	width: 8vmin;
-	height: 8vmin;
+	width: 10vmin;
+	height: 10vmin;
 
 	border-radius: 50%;
 	border: none;
@@ -333,24 +333,49 @@ textarea {
 
 
 
-
-
-
 /****************************** @MEDIA - BEGIN ******************************/
-/*	typical checkpoints - DELETE unused		*/
-
-/* Extra small devices (phones, <<<--600px and down) */
-@media only screen and (max-width: 600px) {} 
-
-/* Small devices (portrait tablets and large phones, 601px-->>> and up) */
-@media only screen and (min-width: 601px) {} 
-
 /* Medium devices (landscape tablets, 768px-->>> and up) */
-@media only screen and (min-width: 768px) {} 
+@media only screen and (min-width: 768px) {
 
-/* Large devices (laptops/desktops, 992px-->>> and up) */
-@media only screen and (min-width: 992px) {} 
+	.item {
+		height: 100px;
+	}
+	
+	.check-box {
+		width: 8vmin;
+		height: 8vmin;
+		top: calc(50% - 4vmin);
+		left: calc(50% - 4vmin);
+	}
 
-/* Extra large devices (large laptops and desktops, 1200px-->>> and up) */
-@media only screen and (min-width: 1200px) {}
-/****************************** @MEDIA - END ******************************/
+	.text-area {
+		font-size: 2rem;
+	}
+
+	.context-btn {
+		width: 8vmin;
+		height: 8vmin;
+	}
+
+	.context-btn--del {
+		width: 10vmin;
+		height: 10vmin;
+		left: -15vmin;
+	}
+
+	.color-btn {
+		width: 8vmin;
+		height: 8vmin;
+	}
+
+	#main-btn {
+		width: 170px;
+		height: 170px; 
+	}
+
+	#clear-btn {
+		margin-top: calc(-85px - 4vmin);
+		width: 8vmin;
+		height: 8vmin;
+	}
+} 

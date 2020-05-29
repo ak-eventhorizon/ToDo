@@ -6,7 +6,6 @@ import {addEventListenersOnItem} from './modules/addEventListeners.js';
 import {addEventListenersOnAddBtn} from './modules/addEventListeners.js';
 import {addEventListenersOnClearBtn} from './modules/addEventListeners.js';
 
-
 import {initializeLocalStorage} from './modules/localStorage.js';
 import {putToLocalStorage} from './modules/localStorage.js';
 import {getFromLocalStorage} from './modules/localStorage.js';
@@ -23,7 +22,7 @@ addEventListenersOnClearBtn();
 let tempListArr = getFromLocalStorage();
 let list = document.getElementById('list');
 
-for (let i = 1; i < listArrCache.length; i++) {
+for (let i = 1; i < tempListArr.length; i++) {
     if(tempListArr[i] !== null) {
         let elem = createItem(tempListArr[i]);
         list.appendChild(elem);
@@ -37,9 +36,7 @@ for (let i = 1; i < listArrCache.length; i++) {
 // ID - equal index in arr
 
 
-// listArrCache example
-// arr[0] - counter, arr[1]...arr[n] - objects
-// ID - equal index in arr
+// tempListArr example
 // let listArr = [
 //     5,
 //     {

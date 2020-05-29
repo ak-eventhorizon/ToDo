@@ -1,7 +1,10 @@
 'use strict';
 
+import {createItem} from './createItem.js';
+
 import {putToLocalStorage} from './localStorage.js';
 import {getFromLocalStorage} from './localStorage.js';
+import {clearLocalStorage} from './localStorage.js';
 
 // IN - object with list item parameters
 // {
@@ -12,10 +15,8 @@ import {getFromLocalStorage} from './localStorage.js';
 //     checked: false
 // }
 
-
 // OUT - undefined
 // function add all event listeners on DOM element 'item-ID'
-
 
 function addEventListenersOnItem(obj){
 
@@ -181,6 +182,54 @@ function addEventListenersOnItem(obj){
 
 }
 
+//************ event handler on MAIN ADD button ************
+function addEventListenersOnAddBtn() {
 
+    let mainBtn = document.getElementById('main-btn');
 
-export {addEventListenersOnItem};
+    mainBtn.onclick = function(){
+
+        let tempListArr = getFromLocalStorage();
+        tempListArr[0]++;
+
+        let newElement = {
+            id: tempListArr[0],
+            order: tempListArr[0],
+            color: 'none',
+            content: '',
+            checked: false
+        };
+
+        tempListArr.push(newElement);
+        putToLocalStorage(tempListArr);
+
+        //create new element in DOM
+        let elem = createItem(newElement);
+        let list = document.getElementById('list');
+        list.appendChild(elem);
+        addEventListenersOnItem(newElement);
+    };
+}
+
+//************ event handler on CLEAR ALL button ************
+function addEventListenersOnClearBtn() {
+
+    let clearBtn = document.getElementById('clear-btn');
+
+    clearBtn.onclick = function(){
+
+        if(confirm('THIS ACTION WILL DELETE ALL!\nARE YOU SURE?')){
+
+            let list = document.getElementById(`list`);
+            list.innerHTML = '';
+        
+            clearLocalStorage();
+        }
+    };
+}
+
+export {
+    addEventListenersOnItem,
+    addEventListenersOnAddBtn,
+    addEventListenersOnClearBtn
+};

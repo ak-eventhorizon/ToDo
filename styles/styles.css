@@ -276,10 +276,8 @@ textarea {
 }
 
 #main-btn {
-	width: 30vmin;
-	height: 30vmin;
-	max-width: 170px;
-	max-height: 170px;
+	width: 25vmin;
+	height: 25vmin;
 	margin-top: 0.5rem;
 
 	border-radius: 50%;
@@ -305,6 +303,33 @@ textarea {
 	background-size: 67%;
 }
 
+
+#delete-all-btn {
+	display: block;
+	margin-top: -16.5vmin;
+	margin-left: 15%;
+
+	width: 8vmin;
+	height: 8vmin;
+
+	border-radius: 50%;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	box-shadow: 0px 0px 2px 1px var(--pure-black);
+	
+	background-image: url(../icons/delete_light.svg);
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: var(--checkbox-checked);
+}
+
+#delete-all-btn:active{
+	box-shadow: 0px 0px 0px 0px var(--pure-black);
+	background-size: 57%;
+}
 
 
 

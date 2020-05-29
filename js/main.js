@@ -55,7 +55,18 @@ mainBtn.onclick = function(){
 };
 
 //************ event handler on DELETE ALL button ************
-//***********************************************************
+//************************************************************
+let deleteAllBtn = document.getElementById('delete-all-btn');
+deleteAllBtn.onclick = function(){
+
+    if(confirm('THIS ACTION WILL DELETE ALL!\nARE YOU SURE?')){
+
+        let list = document.getElementById(`list`);
+        list.innerHTML = '';
+    
+        clearLocalStorage();
+    }
+};
 
 
 

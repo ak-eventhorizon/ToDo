@@ -1,12 +1,27 @@
 'use strict';
 
+function initializeLocalStorage(){
+    if(!localStorage.toDoList){
+        localStorage.toDoList = '[0]';
+    }
+}
+
 function putToLocalStorage(obj){
-    localStorage.setItem('list', JSON.stringify(obj));
+    localStorage.setItem('toDoList', JSON.stringify(obj));
 }
 
 function getFromLocalStorage() {
-    let obj = JSON.parse(localStorage.getItem('list'));
+    let obj = JSON.parse(localStorage.getItem('toDoList'));
     return obj;
 }
 
-export {putToLocalStorage, getFromLocalStorage};
+function clearLocalStorage(){
+    localStorage.toDoList = '[0]';
+}
+
+export {
+    initializeLocalStorage,
+    putToLocalStorage,
+    getFromLocalStorage,
+    clearLocalStorage
+};

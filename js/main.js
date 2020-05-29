@@ -2,16 +2,16 @@
 
 import {createListItem} from './modules/createListItem.js';
 import {addEventListenersOnItem} from './modules/addEventListenersOnItem.js';
+import {initializeLocalStorage} from './modules/localStorage.js';
 import {putToLocalStorage} from './modules/localStorage.js';
 import {getFromLocalStorage} from './modules/localStorage.js';
+import {clearLocalStorage} from './modules/localStorage.js';
 
 
 //************* localStorage, ArrayCache and App state initialize **************
 //******************************************************************************
 
-if(!localStorage.list){
-    localStorage.list = '[0]';
-}
+initializeLocalStorage();
 
 // arr[0] - counter
 // arr[1]...arr[n] - objects

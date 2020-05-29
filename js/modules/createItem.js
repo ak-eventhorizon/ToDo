@@ -37,7 +37,7 @@
 
 </div> */
 
-function createListItem(obj){
+function createItem(obj){
     let id = obj.id; // num
     let order = obj.order; // num
     let color = obj.color; // 'red' 'yellow' 'green' 'none'
@@ -154,4 +154,4 @@ function createListItem(obj){
 
 
 
-export {createListItem};
+export {createItem};

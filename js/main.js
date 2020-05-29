@@ -1,6 +1,6 @@
 'use strict';
 
-import {createListItem} from './modules/createListItem.js';
+import {createItem} from './modules/createItem.js';
 import {addEventListenersOnItem} from './modules/addEventListenersOnItem.js';
 import {initializeLocalStorage} from './modules/localStorage.js';
 import {putToLocalStorage} from './modules/localStorage.js';
@@ -22,14 +22,14 @@ let listNode = document.getElementById('list');
 
 for (let i = 1; i < listArrCache.length; i++) {
     if(listArrCache[i] !== null) {
-        let elem = createListItem(listArrCache[i]);
+        let elem = createItem(listArrCache[i]);
         listNode.appendChild(elem);
         addEventListenersOnItem(listArrCache[i]);
     }
 }
 
 //************ event handler on main ADD button ************
-//***********************************************************
+//**********************************************************
 let mainBtn = document.getElementById('main-btn');
 mainBtn.onclick = function(){
 
@@ -49,10 +49,13 @@ mainBtn.onclick = function(){
     putToLocalStorage(tempListArr);
 
     //new (just pushed in array) element creation in DOM
-    let elem = createListItem(newElement);
+    let elem = createItem(newElement);
     listNode.appendChild(elem);
     addEventListenersOnItem(newElement);
 };
+
+//************ event handler on DELETE ALL button ************
+//***********************************************************
 
 
 

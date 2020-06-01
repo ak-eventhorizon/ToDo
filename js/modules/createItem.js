@@ -6,7 +6,8 @@
 //     order: 1,
 //     color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
 //     content: 'string up to 100 chars',
-//     checked: false
+//     checked: false,
+//     target: false
 // }
 
 
@@ -23,6 +24,7 @@
 
 <div id="context_menu-1" class="context-menu context-menu--hidden">
     <div id="context_btn_del-1" class="context-btn context-btn--del"></div>
+    <div id="context_btn_target-1" class="context-btn context-btn--target"></div>
     <div id="context_btn_down-1" class="context-btn context-btn--down"></div>
     <div id="context_btn_up-1" class="context-btn context-btn--up"></div>
     <div id="context_btn_color-1" class="context-btn context-btn--color"></div>
@@ -43,6 +45,7 @@ function createItem(obj){
     let color = obj.color; // 'red' 'yellow' 'green' 'blue' 'none'
     let content = obj.content; // string
     let checked = obj.checked; // boolean
+    let target = obj.target; // boolean
 
     let item = document.createElement('div');
     item.id = `item-${id}`;
@@ -67,6 +70,10 @@ function createItem(obj){
         case 'none': 
             checkArea.classList = 'check-area';
             break;
+    }
+
+    if(target) {
+        checkArea.classList.toggle('check-area--target');
     }
 
     let checkBox = document.createElement('div');
@@ -101,12 +108,16 @@ function createItem(obj){
     contextMenu.classList = 'context-menu context-menu--hidden';
 
     let contextButtonDel = document.createElement('div');
+    let contextButtonTarget = document.createElement('div');
     let contextButtonDown = document.createElement('div');
     let contextButtonUp = document.createElement('div');
     let contextButtonColor = document.createElement('div');
 
     contextButtonDel.id = `context_btn_del-${id}`;
     contextButtonDel.classList = 'context-btn context-btn--del';
+
+    contextButtonTarget.id = `context_btn_target-${id}`;
+    contextButtonTarget.classList = 'context-btn context-btn--target';
 
     contextButtonDown.id = `context_btn_down-${id}`;
     contextButtonDown.classList = 'context-btn context-btn--down';
@@ -118,6 +129,7 @@ function createItem(obj){
     contextButtonColor.classList = 'context-btn context-btn--color';
 
     contextMenu.appendChild(contextButtonDel);
+    contextMenu.appendChild(contextButtonTarget);
     contextMenu.appendChild(contextButtonDown);
     contextMenu.appendChild(contextButtonUp);
     contextMenu.appendChild(contextButtonColor);

@@ -19,7 +19,8 @@
     order: number,
     color: 'string',
     content: 'string',
-    checked: boolean
+    checked: boolean,
+    target: boolean
 }
 ```
 

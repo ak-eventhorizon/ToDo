@@ -82,6 +82,13 @@
 	background: linear-gradient(to right, var(--item-blue) 0%, var(--item-blue) 50%, var(--item-background) 100%);
 }
 
+.check-area--target {
+	background-image: url(../icons/target.svg);
+	background-size: 75%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
 .check-box {
 	width: 10vmin;
     height: 10vmin;
@@ -211,6 +218,10 @@ textarea {
 	left: -17.5vmin;
 	
 	background-image: url(../icons/delete.svg);
+}
+
+.context-btn--target {
+	background-image: url(../icons/target.svg);
 }
 
 .context-btn--down {
@@ -343,6 +354,10 @@ textarea {
 
 	.item {
 		height: 100px;
+	}
+
+	.check-area--target {
+		background-size: 55%;
 	}
 	
 	.check-box {

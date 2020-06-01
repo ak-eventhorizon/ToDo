@@ -13,6 +13,7 @@ import {clearLocalStorage} from './localStorage.js';
 //     color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
 //     content: 'string up to 100 chars',
 //     checked: false
+//     target: false
 // }
 
 // OUT - undefined
@@ -20,7 +21,7 @@ import {clearLocalStorage} from './localStorage.js';
 
 function addEventListenersOnItem(obj){
 
-    let id = obj.id;
+    let id = obj.id;  // id and index inside aray
 
     //************ event handler on menu button ************
     let menuButton = document.getElementById(`menu_btn-${id}`);
@@ -62,6 +63,18 @@ function addEventListenersOnItem(obj){
 
         let tempListArr = getFromLocalStorage();
         tempListArr[id] = null;
+        putToLocalStorage(tempListArr);
+    };
+
+    //************ event handler on context-menu-target button ************
+    let targetButton = document.getElementById(`context_btn_target-${id}`);
+    targetButton.onclick = function(){
+
+        let currentCheckArea = document.getElementById(`check_area-${id}`);
+        currentCheckArea.classList.toggle('check-area--target');
+        
+        let tempListArr = getFromLocalStorage();
+        tempListArr[id].target = !tempListArr[id].target;
         putToLocalStorage(tempListArr);
     };
     
@@ -201,7 +214,8 @@ function addEventListenersOnAddBtn() {
             order: tempListArr[0],
             color: 'none',
             content: '',
-            checked: false
+            checked: false,
+            target: false
         };
 
         tempListArr.push(newElement);

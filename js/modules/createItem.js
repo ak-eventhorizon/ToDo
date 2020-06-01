@@ -40,7 +40,7 @@
 function createItem(obj){
     let id = obj.id; // num
     let order = obj.order; // num
-    let color = obj.color; // 'red' 'yellow' 'green' 'none'
+    let color = obj.color; // 'red' 'yellow' 'green' 'blue' 'none'
     let content = obj.content; // string
     let checked = obj.checked; // boolean
 

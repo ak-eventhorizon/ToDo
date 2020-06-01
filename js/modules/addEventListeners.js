@@ -10,7 +10,7 @@ import {clearLocalStorage} from './localStorage.js';
 // {
 //     id: 1,
 //     order: 1,
-//     color: 'red' | 'yellow '| 'green' | 'none',
+//     color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
 //     content: 'string up to 100 chars',
 //     checked: false
 // }
@@ -137,7 +137,7 @@ function addEventListenersOnItem(obj){
     let colorChangeRedButton = document.getElementById(`color_btn_red-${id}`);
     let colorChangeYellowButton = document.getElementById(`color_btn_yellow-${id}`);
     let colorChangeGreenButton = document.getElementById(`color_btn_green-${id}`);
-    let colorChangeNoneButton = document.getElementById(`color_btn_none-${id}`);
+    let colorChangeBlueButton = document.getElementById(`color_btn_blue-${id}`);
 
     let currentCheckArea = document.getElementById(`check_area-${id}`);
 
@@ -165,8 +165,12 @@ function addEventListenersOnItem(obj){
         }
     };
 
-    colorChangeNoneButton.onclick = function(){
-        currentCheckArea.classList.value = 'check-area';
+    colorChangeBlueButton.onclick = function(){
+        if(currentCheckArea.classList.contains('check-area--blue')){
+            currentCheckArea.classList.value = 'check-area';
+        } else {
+            currentCheckArea.classList.value = 'check-area check-area--blue';
+        }
     };
 
 

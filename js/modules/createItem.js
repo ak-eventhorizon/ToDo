@@ -4,7 +4,7 @@
 // {
 //     id: 1,
 //     order: 1,
-//     color: 'red' | 'yellow '| 'green' | 'none',
+//     color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
 //     content: 'string up to 100 chars',
 //     checked: false
 // }
@@ -32,7 +32,7 @@
     <div id="color_btn_red-1" class="color-btn color-btn--red"></div>
     <div id="color_btn_yellow-1" class="color-btn color-btn--yellow"></div>
     <div id="color_btn_green-1" class="color-btn color-btn--green"></div>
-    <div id="color_btn_none-1" class="color-btn color-btn--none"></div>
+    <div id="color_btn_none-1" class="color-btn color-btn--blue"></div>
 </div>
 
 </div> */
@@ -60,6 +60,9 @@ function createItem(obj){
             break;
         case 'green': 
             checkArea.classList = 'check-area check-area--green';
+            break;
+        case 'blue':
+            checkArea.classList = 'check-area check-area--blue';
             break;
         case 'none': 
             checkArea.classList = 'check-area';
@@ -128,7 +131,7 @@ function createItem(obj){
     let colorButtonRed = document.createElement('div');
     let colorButtonYellow = document.createElement('div');
     let colorButtonGreen = document.createElement('div');
-    let colorButtonNone = document.createElement('div');
+    let colorButtonBlue = document.createElement('div');
 
     colorButtonRed.id = `color_btn_red-${id}`;
     colorButtonRed.classList = 'color-btn color-btn--red';
@@ -139,13 +142,13 @@ function createItem(obj){
     colorButtonGreen.id = `color_btn_green-${id}`;
     colorButtonGreen.classList = 'color-btn color-btn--green';
 
-    colorButtonNone.id = `color_btn_none-${id}`;
-    colorButtonNone.classList = 'color-btn color-btn--none';
+    colorButtonBlue.id = `color_btn_blue-${id}`;
+    colorButtonBlue.classList = 'color-btn color-btn--blue';
 
     colorMenu.appendChild(colorButtonRed);
     colorMenu.appendChild(colorButtonYellow);
     colorMenu.appendChild(colorButtonGreen);
-    colorMenu.appendChild(colorButtonNone);
+    colorMenu.appendChild(colorButtonBlue);
 
     item.appendChild(colorMenu);
 

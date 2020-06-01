@@ -19,6 +19,7 @@
 	--item-red: #f44034;
 	--item-yellow: #dec914;
 	--item-green: #4daf51;
+	--item-blue: #2196f3;
 	--item-background: #e8e8e8;
 }
 /****************************** COLOR SCHEME - END ******************************/
@@ -75,6 +76,10 @@
 
 .check-area--red {
 	background: linear-gradient(to right, var(--item-red) 0%, var(--item-red) 50%, var(--item-background) 100%);
+}
+
+.check-area--blue {
+	background: linear-gradient(to right, var(--item-blue) 0%, var(--item-blue) 50%, var(--item-background) 100%);
 }
 
 .check-box {
@@ -270,8 +275,8 @@ textarea {
 	background-color: var(--item-green);
 }
 
-.color-btn--none {
-	background-color: var(--item-background);
+.color-btn--blue {
+	background-color: var(--item-blue);
 }
 
 #main-btn {

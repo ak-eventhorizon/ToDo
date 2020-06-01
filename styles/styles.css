@@ -82,11 +82,21 @@
 	background: linear-gradient(to right, var(--item-blue) 0%, var(--item-blue) 50%, var(--item-background) 100%);
 }
 
-.check-area--target {
+.check-target {
+	display: none;
+
+	position: absolute;
+    width: 20vmin;
+	height: 100%;
+	
 	background-image: url(../icons/target.svg);
 	background-size: 75%;
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+
+.check-target--active {
+	display: block;
 }
 
 .check-box {
@@ -356,7 +366,7 @@ textarea {
 		height: 100px;
 	}
 
-	.check-area--target {
+	.check-target {
 		background-size: 55%;
 	}
 	

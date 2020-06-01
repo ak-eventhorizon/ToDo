@@ -72,9 +72,15 @@ function createItem(obj){
             break;
     }
 
+    let checkTarget = document.createElement('div');
+    checkTarget.id = `check_target-${id}`;
+    checkTarget.classList = 'check-target';
+
     if(target) {
-        checkArea.classList.toggle('check-area--target');
+        checkTarget.classList.toggle('check-target--active');
     }
+
+    checkArea.appendChild(checkTarget);
 
     let checkBox = document.createElement('div');
     checkBox.id = `check_box-${id}`;
@@ -85,6 +91,7 @@ function createItem(obj){
     }
 
     checkArea.appendChild(checkBox);
+
     item.appendChild(checkArea);
 
     let textArea = document.createElement('textarea');

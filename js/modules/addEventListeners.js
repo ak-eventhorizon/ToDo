@@ -69,8 +69,8 @@ function addEventListenersOnItem(obj){
     let targetButton = document.getElementById(`context_btn_target-${id}`);
     targetButton.onclick = function(){
 
-        let currentCheckArea = document.getElementById(`check_area-${id}`);
-        currentCheckArea.classList.toggle('check-area--target');
+        let currentCheckTarget = document.getElementById(`check_target-${id}`);
+        currentCheckTarget.classList.toggle('check-target--active');
         
         let tempListArr = getFromLocalStorage();
         tempListArr[id].target = !tempListArr[id].target;
@@ -79,10 +79,10 @@ function addEventListenersOnItem(obj){
         for (let i = 1; i < tempListArr.length; i++) {
             if( i !== id && tempListArr[i] !== null) {
 
-                let currentCheckArea = document.getElementById(`check_area-${i}`);
-                if (currentCheckArea.classList.contains('check-area--target')) {
+                let currentCheckTarget = document.getElementById(`check_target-${i}`);
+                if (currentCheckTarget.classList.contains('check-target--active')) {
 
-                    currentCheckArea.classList.toggle('check-area--target');
+                    currentCheckTarget.classList.toggle('check-target--active');
                     tempListArr[i].target = false;
                 }
             }

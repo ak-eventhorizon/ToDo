@@ -15,6 +15,7 @@
 /* <div id="item-1" class="item" style="order: 1;">
 
 <div id="check_area-1" class="check-area check-area--red">
+    <div id="check_target-1" class="check-target"></div>
     <div id="check_box-1" class="check-box"></div>
 </div>
 

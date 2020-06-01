@@ -32,7 +32,7 @@ function addEventListenersOnItem(obj){
         let currentContextMenu = document.getElementById(`context_menu-${id}`);
         currentContextMenu.classList.toggle('context-menu--hidden');
 
-        //hide color choice menu if it was enabled
+        //hide color menu menu if it was opened
         let currentColorMenu = document.getElementById(`color_menu-${id}`);
         if(!currentColorMenu.classList.contains('color-menu--hidden')){
         currentColorMenu.classList.toggle('color-menu--hidden');
@@ -52,7 +52,6 @@ function addEventListenersOnItem(obj){
             }
         }
     };
-
 
     //************ event handler on context-menu-delete button ************
     let deleteButton = document.getElementById(`context_btn_del-${id}`);
@@ -75,6 +74,19 @@ function addEventListenersOnItem(obj){
         
         let tempListArr = getFromLocalStorage();
         tempListArr[id].target = !tempListArr[id].target;
+
+        //close all other targets if they exist
+        for (let i = 1; i < tempListArr.length; i++) {
+            if( i !== id && tempListArr[i] !== null) {
+
+                let currentCheckArea = document.getElementById(`check_area-${i}`);
+                if (currentCheckArea.classList.contains('check-area--target')) {
+
+                    currentCheckArea.classList.toggle('check-area--target');
+                    tempListArr[i].target = false;
+                }
+            }
+        }
         putToLocalStorage(tempListArr);
     };
     

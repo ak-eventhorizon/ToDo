@@ -21,7 +21,7 @@ import {clearLocalStorage} from './localStorage.js';
 
 function addEventListenersOnItem(obj){
 
-    let id = obj.id;  // id and index inside aray
+    let id = obj.id;  // id equal index inside aray
 
     //************ event handler on menu button ************
     let menuButton = document.getElementById(`menu_btn-${id}`);

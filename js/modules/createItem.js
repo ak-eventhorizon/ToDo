@@ -101,7 +101,7 @@ function createItem(obj){
     textArea.spellcheck = false;
     textArea.maxLength = 100;
     textArea.readOnly = checked ? true : false;
-    textArea.innerText = content;
+    textArea.value = content;
 
     item.appendChild(textArea);
 

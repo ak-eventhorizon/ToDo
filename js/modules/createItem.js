@@ -85,10 +85,10 @@ function createItem(obj){
 
     let checkBox = document.createElement('div');
     checkBox.id = `check_box-${id}`;
+    checkBox.classList = 'check-box';
+
     if(checked){
-        checkBox.classList = 'check-box check-box--checked';
-    } else {
-        checkBox.classList = 'check-box';
+        checkBox.classList.toggle = 'check-box--checked';
     }
 
     checkArea.appendChild(checkBox);

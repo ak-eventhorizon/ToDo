@@ -245,7 +245,6 @@ function addEventListenersOnItem(obj){
         putToLocalStorage(tempListArr);
     };
 
-
     //************ event handler on check box ************
     let checkBox = document.getElementById(`check_box-${id}`);
     checkBox.onclick = function(){
@@ -256,6 +255,15 @@ function addEventListenersOnItem(obj){
 
         let tempListArr = getFromLocalStorage();
         tempListArr[id].checked = !tempListArr[id].checked;
+        putToLocalStorage(tempListArr);
+    };
+
+    //************ event handler on textarea change ************
+    let textArea = document.getElementById(`text_area-${id}`);
+    textArea.oninput = function(){
+
+        let tempListArr = getFromLocalStorage();
+        tempListArr[id].content = this.value;
         putToLocalStorage(tempListArr);
     };
 

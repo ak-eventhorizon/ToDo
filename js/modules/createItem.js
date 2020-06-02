@@ -88,7 +88,7 @@ function createItem(obj){
     checkBox.classList = 'check-box';
 
     if(checked){
-        checkBox.classList.toggle = 'check-box--checked';
+        checkBox.classList.toggle('check-box--checked');
     }
 
     checkArea.appendChild(checkBox);

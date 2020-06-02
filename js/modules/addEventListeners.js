@@ -84,38 +84,57 @@ function addEventListenersOnItem(obj){
 
                     currentCheckTarget.classList.toggle('check-target--active');
                     tempListArr[i].target = false;
+                    break;
                 }
             }
         }
         putToLocalStorage(tempListArr);
     };
     
-
     //************ event handler on context-menu-down button ************
     let downButton = document.getElementById(`context_btn_down-${id}`);
     downButton.onclick = function(){
 
-        let currentItem = document.getElementById(`item-${id}`);
-
-        let items = document.querySelectorAll('.item');
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].style.order === String(+currentItem.style.order + 1)) {
-                [currentItem.style.order, items[i].style.order] = 
-                [items[i].style.order, currentItem.style.order]; // swap values in DOM <-->
-                break;
-            } 
-        }
-//***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
-        // swap values in objects <-->
         let tempListArr = getFromLocalStorage();
+
+        let currentItemOrder = tempListArr[id].order;
+        let nextItemOrder;
+        let positionsArray = [];
+
         for (let i = 1; i < tempListArr.length; i++) {
-            if(tempListArr[i].order === tempListArr[id].order + 1) {
-                tempListArr[i].order--; 
-                tempListArr[id].order++;
-                break;
+            if(tempListArr[i] !== null){
+                positionsArray[tempListArr[i].order] = tempListArr[i].id;
             }
         }
+        console.log(positionsArray);
+        console.log(currentItemOrder);
+
+        for (let i = positionsArray.indexOf(currentItemOrder); i < positionsArray.length; i++) {
+            console.log(i);
+        }
+
         putToLocalStorage(tempListArr);
+
+        
+
+//         let items = document.querySelectorAll('.item');
+//         for (let i = 0; i < items.length; i++) {
+//             if (items[i].style.order === String(+currentItem.style.order + 1)) {
+//                 [currentItem.style.order, items[i].style.order] = 
+//                 [items[i].style.order, currentItem.style.order]; // swap values in DOM <-->
+//                 break;
+//             } 
+//         }
+// //***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
+//         // swap values in objects <-->
+//         for (let i = 1; i < tempListArr.length; i++) {
+//             if(tempListArr[i].order === tempListArr[id].order + 1) {
+//                 tempListArr[i].order--; 
+//                 tempListArr[id].order++;
+//                 break;
+//             }
+//         }
+//         putToLocalStorage(tempListArr);
 
     };
 
@@ -167,35 +186,63 @@ function addEventListenersOnItem(obj){
     let currentCheckArea = document.getElementById(`check_area-${id}`);
 
     colorChangeRedButton.onclick = function(){
+
+        let tempListArr = getFromLocalStorage();
+
         if(currentCheckArea.classList.contains('check-area--red')){
             currentCheckArea.classList.value = 'check-area';
+            tempListArr[id].color = 'none';
         } else {
             currentCheckArea.classList.value = 'check-area check-area--red';
+            tempListArr[id].color = 'red';
         }
+
+        putToLocalStorage(tempListArr);
     };
 
     colorChangeYellowButton.onclick = function(){
+
+        let tempListArr = getFromLocalStorage();
+
         if(currentCheckArea.classList.contains('check-area--yellow')){
             currentCheckArea.classList.value = 'check-area';
+            tempListArr[id].color = 'none';
         } else {
             currentCheckArea.classList.value = 'check-area check-area--yellow';
+            tempListArr[id].color = 'yellow';
         }
+
+        putToLocalStorage(tempListArr);
     };
 
     colorChangeGreenButton.onclick = function(){
+
+        let tempListArr = getFromLocalStorage();
+
         if(currentCheckArea.classList.contains('check-area--green')){
             currentCheckArea.classList.value = 'check-area';
+            tempListArr[id].color = 'none';
         } else {
             currentCheckArea.classList.value = 'check-area check-area--green';
+            tempListArr[id].color = 'green';
         }
+
+        putToLocalStorage(tempListArr);
     };
 
     colorChangeBlueButton.onclick = function(){
+
+        let tempListArr = getFromLocalStorage();
+
         if(currentCheckArea.classList.contains('check-area--blue')){
             currentCheckArea.classList.value = 'check-area';
+            tempListArr[id].color = 'none';
         } else {
             currentCheckArea.classList.value = 'check-area check-area--blue';
+            tempListArr[id].color = 'blue';
         }
+
+        putToLocalStorage(tempListArr);
     };
 
 
@@ -205,8 +252,11 @@ function addEventListenersOnItem(obj){
 
         this.classList.toggle('check-box--checked');
         let currentTextArea = document.getElementById(`text_area-${id}`);
-
         currentTextArea.toggleAttribute('readonly');
+
+        let tempListArr = getFromLocalStorage();
+        tempListArr[id].checked = !tempListArr[id].checked;
+        putToLocalStorage(tempListArr);
     };
 
 }

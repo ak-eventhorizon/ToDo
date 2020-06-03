@@ -23,7 +23,7 @@ function addEventListenersOnItem(obj){
 
     let id = obj.id;  // id equal index inside aray
 
-    //************ event handler on menu button ************
+    //************ event listener on menu button ************
     let menuButton = document.getElementById(`menu_btn-${id}`);
     menuButton.onclick = function(){
 
@@ -53,7 +53,7 @@ function addEventListenersOnItem(obj){
         }
     };
 
-    //************ event handler on context-menu-delete button ************
+    //************ event listener on context-menu-delete button ************
     let deleteButton = document.getElementById(`context_btn_del-${id}`);
     deleteButton.onclick = function(){
 
@@ -65,7 +65,7 @@ function addEventListenersOnItem(obj){
         putToLocalStorage(tempListArr);
     };
 
-    //************ event handler on context-menu-target button ************
+    //************ event listener on context-menu-target button ************
     let targetButton = document.getElementById(`context_btn_target-${id}`);
     targetButton.onclick = function(){
 
@@ -91,7 +91,7 @@ function addEventListenersOnItem(obj){
         putToLocalStorage(tempListArr);
     };
     
-    //************ event handler on context-menu-down button ************
+    //************ event listener on context-menu-down button ************
     let downButton = document.getElementById(`context_btn_down-${id}`);
     downButton.onclick = function(){
 
@@ -139,7 +139,7 @@ function addEventListenersOnItem(obj){
     };
 
     
-    //************ event handler on context-menu-up button ************
+    //************ event listener on context-menu-up button ************
     let upButton = document.getElementById(`context_btn_up-${id}`);
     upButton.onclick = function(){
 
@@ -168,7 +168,7 @@ function addEventListenersOnItem(obj){
     };
 
 
-    //************ event handler on context-menu-color button ************
+    //************ event listener on context-menu-color button ************
     let colorButton = document.getElementById(`context_btn_color-${id}`);
     colorButton.onclick = function(){
 
@@ -177,7 +177,7 @@ function addEventListenersOnItem(obj){
     };
 
 
-    //************ event handlers on color-change buttons ************
+    //************ event listener on color-change buttons ************
     let colorChangeRedButton = document.getElementById(`color_btn_red-${id}`);
     let colorChangeYellowButton = document.getElementById(`color_btn_yellow-${id}`);
     let colorChangeGreenButton = document.getElementById(`color_btn_green-${id}`);
@@ -245,7 +245,7 @@ function addEventListenersOnItem(obj){
         putToLocalStorage(tempListArr);
     };
 
-    //************ event handler on check box ************
+    //************ event listener on check box ************
     let checkBox = document.getElementById(`check_box-${id}`);
     checkBox.onclick = function(){
 
@@ -258,7 +258,7 @@ function addEventListenersOnItem(obj){
         putToLocalStorage(tempListArr);
     };
 
-    //************ event handler on textarea change ************
+    //************ event listener on textarea change ************
     let textArea = document.getElementById(`text_area-${id}`);
     textArea.oninput = function(){
 
@@ -269,7 +269,7 @@ function addEventListenersOnItem(obj){
 
 }
 
-//************ event handler on MAIN ADD button ************
+//************ event listener on MAIN ADD button ************
 function addEventListenersOnAddBtn() {
 
     let mainBtn = document.getElementById('main-btn');
@@ -299,7 +299,7 @@ function addEventListenersOnAddBtn() {
     };
 }
 
-//************ event handler on CLEAR ALL button ************
+//************ event listener on CLEAR ALL button ************
 function addEventListenersOnClearBtn() {
 
     let clearBtn = document.getElementById('clear-btn');

@@ -95,78 +95,87 @@ function addEventListenersOnItem(obj){
     let downButton = document.getElementById(`context_btn_down-${id}`);
     downButton.onclick = function(){
 
+        //нужно найти все элементы массива с атрибутом order больше текущего
+        //из них узнать id элемента с самым маленьким order
+        //поменять местами order-ы в стилях и в массиве 
+
         let tempListArr = getFromLocalStorage();
 
-        let currentItemOrder = tempListArr[id].order;
-        let nextItemOrder;
-        let positionsArray = [];
-
+        //create array of objects with order higher then current order
+        let listWithHigherOrders = [];
         for (let i = 1; i < tempListArr.length; i++) {
-            if(tempListArr[i] !== null){
-                positionsArray[tempListArr[i].order] = tempListArr[i].id;
-            }
-        }
-        console.log(positionsArray);
-        console.log(currentItemOrder);
-
-        for (let i = positionsArray.indexOf(currentItemOrder); i < positionsArray.length; i++) {
-            console.log(i);
+            if (tempListArr[i] !== null && tempListArr[i].order > tempListArr[id].order) {
+                listWithHigherOrders.push(tempListArr[i]);
+            } 
         }
 
-        putToLocalStorage(tempListArr);
+        //sort array by orders ascending
+        listWithHigherOrders.sort(function(a, b) {
+            return a.order - b.order;
+        });
 
-        
+        //if item with higher order exist
+        if(listWithHigherOrders[0]){
+            let nextItemId = listWithHigherOrders[0].id;
+            let nextItem = document.getElementById(`item-${nextItemId}`);
 
-//         let items = document.querySelectorAll('.item');
-//         for (let i = 0; i < items.length; i++) {
-//             if (items[i].style.order === String(+currentItem.style.order + 1)) {
-//                 [currentItem.style.order, items[i].style.order] = 
-//                 [items[i].style.order, currentItem.style.order]; // swap values in DOM <-->
-//                 break;
-//             } 
-//         }
-// //***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
-//         // swap values in objects <-->
-//         for (let i = 1; i < tempListArr.length; i++) {
-//             if(tempListArr[i].order === tempListArr[id].order + 1) {
-//                 tempListArr[i].order--; 
-//                 tempListArr[id].order++;
-//                 break;
-//             }
-//         }
-//         putToLocalStorage(tempListArr);
+            let currentItemId = id;
+            let currentItem = document.getElementById(`item-${currentItemId}`);
 
+            //swap orders in html
+            [currentItem.style.order, nextItem.style.order] = 
+            [nextItem.style.order, currentItem.style.order];
+
+            //swap orders in localStorage
+            [tempListArr[currentItemId].order, tempListArr[nextItemId].order] = 
+            [tempListArr[nextItemId].order, tempListArr[currentItemId].order];
+        }
+
+        putToLocalStorage(tempListArr);  
     };
 
-    
     //************ event listener on context-menu-up button ************
     let upButton = document.getElementById(`context_btn_up-${id}`);
     upButton.onclick = function(){
 
-        let currentItem = document.getElementById(`item-${id}`);
+        //нужно найти все элементы массива с атрибутом order меньше текущего
+        //из них узнать id элемента с самым большим order
+        //поменять местами order-ы в стилях и в массиве 
 
-        let items = document.querySelectorAll('.item');
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].style.order === String(+currentItem.style.order - 1)) {
-                [currentItem.style.order, items[i].style.order] = 
-                [items[i].style.order, currentItem.style.order]; // swap values <-->
-                break;
+        let tempListArr = getFromLocalStorage();
+
+        //create array of objects with order lower then current order
+        let listWithLowerOrders = [];
+        for (let i = 1; i < tempListArr.length; i++) {
+            if (tempListArr[i] !== null && tempListArr[i].order < tempListArr[id].order) {
+                listWithLowerOrders.push(tempListArr[i]);
             } 
         }
 
-//***********VVVVV Переделать - работает, только если нет удаленных элементов в массиве */
-        // swap values in objects <-->
-        let tempListArr = getFromLocalStorage();
-        for (let i = 1; i < tempListArr.length; i++) {
-            if(tempListArr[i].order === tempListArr[id].order - 1) {
-                tempListArr[i].order++; 
-                tempListArr[id].order--;
-                break;
-            }
-        }
-        putToLocalStorage(tempListArr);
-    };
+        //sort array by orders descending
+        listWithLowerOrders.sort(function(a, b) {
+            return b.order - a.order;
+        });
 
+        //if item with lower order exist
+        if(listWithLowerOrders[0]){
+            let previousItemId = listWithLowerOrders[0].id;
+            let previousItem = document.getElementById(`item-${previousItemId}`);
+
+            let currentItemId = id;
+            let currentItem = document.getElementById(`item-${currentItemId}`);
+
+            //swap orders in html
+            [currentItem.style.order, previousItem.style.order] = 
+            [previousItem.style.order, currentItem.style.order];
+
+            //swap orders in localStorage
+            [tempListArr[currentItemId].order, tempListArr[previousItemId].order] = 
+            [tempListArr[previousItemId].order, tempListArr[currentItemId].order];
+        }
+
+        putToLocalStorage(tempListArr);        
+    };
 
     //************ event listener on context-menu-color button ************
     let colorButton = document.getElementById(`context_btn_color-${id}`);
@@ -175,7 +184,6 @@ function addEventListenersOnItem(obj){
         let currentColorMenu = document.getElementById(`color_menu-${id}`);
         currentColorMenu.classList.toggle('color-menu--hidden');
     };
-
 
     //************ event listener on color-change buttons ************
     let colorChangeRedButton = document.getElementById(`color_btn_red-${id}`);
@@ -266,7 +274,6 @@ function addEventListenersOnItem(obj){
         tempListArr[id].content = this.value;
         putToLocalStorage(tempListArr);
     };
-
 }
 
 //************ event listener on MAIN ADD button ************

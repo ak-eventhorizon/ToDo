@@ -17,8 +17,8 @@
 {
     id: number,
     order: number,
-    color: 'string',
-    content: 'string',
+    color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
+    content: 'string up to 100 chars',
     checked: boolean,
     target: boolean
 }

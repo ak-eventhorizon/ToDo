@@ -7,13 +7,11 @@ import {addEventListenersOnAddBtn} from './modules/addEventListeners.js';
 import {addEventListenersOnClearBtn} from './modules/addEventListeners.js';
 
 import {initializeLocalStorage} from './modules/localStorage.js';
-import {putToLocalStorage} from './modules/localStorage.js';
 import {getFromLocalStorage} from './modules/localStorage.js';
-import {clearLocalStorage} from './modules/localStorage.js';
 
 
 //************* localStorage, interface and App state initialize **************
-//******************************************************************************
+//*****************************************************************************
 
 initializeLocalStorage();
 addEventListenersOnAddBtn();

@@ -7,10 +7,9 @@
 
 ## Структура localStorage
 
-`localStorage` содержит массив `toDoList`
+`localStorage` содержит массив `toDoList`.
 
-`toDoList[0]` - число, исходно устанавливаемое в 0, увеличивается инкрементально  
- используется для генерации `id` и `order` новых элементов.
+`toDoList[0]` - счетчик. Число, исходно устанавливаемое в 0, увеличивается инкрементально используется для генерации `id` и `order` новых элементов.
 
 `toDoList[1]`...`toDoList[n]` - объекты, хранящие состояние каждого элемента списка:  
 ```JavaScript
@@ -34,16 +33,15 @@
 
 ### localStorage.js
 
-Модуль для работы с `localStorage`.  
-Предоставляет следующие функции:
+Модуль для работы с `localStorage`. Предоставляет следующие функции:
 
-**initializeLocalStorage** - если в `localStorage` массив `toDoList` не существует, то он создается и инициализуется значение [0].
+**initializeLocalStorage()** - если в `localStorage` массив `toDoList` не существует, то он создается и инициализуется значением [0].
 
-**clearLocalStorage** - массив `toDoList` очищается, принудительно получая значение [0].
+**clearLocalStorage()** - массив `toDoList` очищается, принудительно получая значение [0].
 
-**putToLocalStorage** - массив, переданный в качестве аргумента этой функции помещается в  `localStorage` с ключом `toDoList`.
+**putToLocalStorage(arr)** - массив, переданный в качестве аргумента этой функции помещается в  `localStorage` с ключом `toDoList`.
 
-**getFromLocalStorage** - возвращает массив, полученный из `localStorage` из ключа `toDoList`.
+**getFromLocalStorage()** - возвращает массив, полученный из `localStorage` из ключа `toDoList`.
 
 ### createElement.js
 

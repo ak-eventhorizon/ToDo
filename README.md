@@ -33,7 +33,12 @@
 
 ### localStorage.js
 
-***todo***
+Модуль для работы с `localStorage`.
+Предоставляет следующие функции:  
+**initializeLocalStorage** - если в `localStorage` массив `toDoList` не существует, то он создается и инициализуется значение [0].  
+**clearLocalStorage** - массив `toDoList` очищается, принудительно получая значение [0].
+**putToLocalStorage** - массив, переданный в качестве аргумента этой функции помещается в  `localStorage` с ключом `toDoList`.
+**getFromLocalStorage** - возвращает массив, полученный из `localStorage` из ключа `toDoList`.
 
 ### createElement.js
 

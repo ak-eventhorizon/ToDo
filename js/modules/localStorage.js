@@ -6,13 +6,13 @@ function initializeLocalStorage(){
     }
 }
 
-function putToLocalStorage(obj){
-    localStorage.setItem('toDoList', JSON.stringify(obj));
+function putToLocalStorage(arr){
+    localStorage.setItem('toDoList', JSON.stringify(arr));
 }
 
 function getFromLocalStorage() {
-    let obj = JSON.parse(localStorage.getItem('toDoList'));
-    return obj;
+    let arr = JSON.parse(localStorage.getItem('toDoList'));
+    return arr;
 }
 
 function clearLocalStorage(){

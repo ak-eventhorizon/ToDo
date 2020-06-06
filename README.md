@@ -31,6 +31,8 @@
 
 При запуске осуществляет инициализацию `localStorage`, навешивание event listener'ов на все элементы интерфейса, а также генерацию и добавление в html-разметку элементов списка в соответствии с сохраненными данными из массива `toDoList`, полученного из `localStorage`.
 
+***
+
 ### localStorage.js
 
 Модуль для работы с `localStorage`. Предоставляет следующие функции:
@@ -43,12 +45,18 @@
 
 **getFromLocalStorage()** - возвращает массив, полученный из `localStorage` из ключа `toDoList`.
 
+***
+
 ### createElement.js
 
 ***todo***
 
+***
+
 ### addEventListeners.js
 
 ***todo***
+
+***
 
 https://paulradzkov.com/2014/markdown_cheatsheet/

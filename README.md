@@ -29,15 +29,20 @@
 ### main.js
 
 Центральный JS файл. Подключен в html.  
+
 При запуске осуществляет инициализацию `localStorage`, навешивание event listener'ов на все элементы интерфейса, а также генерацию и добавление в html-разметку элементов списка в соответствии с сохраненными данными из массива `toDoList`, полученного из `localStorage`.
 
 ### localStorage.js
 
-Модуль для работы с `localStorage`.
-Предоставляет следующие функции:  
-**initializeLocalStorage** - если в `localStorage` массив `toDoList` не существует, то он создается и инициализуется значение [0].  
+Модуль для работы с `localStorage`.  
+Предоставляет следующие функции:
+
+**initializeLocalStorage** - если в `localStorage` массив `toDoList` не существует, то он создается и инициализуется значение [0].
+
 **clearLocalStorage** - массив `toDoList` очищается, принудительно получая значение [0].
+
 **putToLocalStorage** - массив, переданный в качестве аргумента этой функции помещается в  `localStorage` с ключом `toDoList`.
+
 **getFromLocalStorage** - возвращает массив, полученный из `localStorage` из ключа `toDoList`.
 
 ### createElement.js

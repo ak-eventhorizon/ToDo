@@ -2,8 +2,8 @@
 
 // IN - object with list item parameters
 // {
-//     id: 1,
-//     order: 1,
+//     id: N,
+//     order: N,
 //     color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
 //     content: 'string up to 100 chars',
 //     checked: false,
@@ -12,32 +12,30 @@
 
 
 // OUT - DOM element 'item-ID'
-/* <div id="item-1" class="item" style="order: 1;">
+/* <div id="item-N" class="item" style="order: N;">
+    <div id="check_area-N" class="check-area check-area--COLOR">
+        <div id="check_target-N" class="check-target"></div>
+        <div id="check_box-N" class="check-box"></div>
+    </div>
 
-<div id="check_area-1" class="check-area check-area--red">
-    <div id="check_target-1" class="check-target"></div>
-    <div id="check_box-1" class="check-box"></div>
-</div>
+    <textarea id="text_area-N" class="text-area" spellcheck="false" maxlength="100"></textarea>
 
-<textarea id="text_area-1" class="text-area" spellcheck="false" maxlength="100">string up to 100 chars</textarea>
+    <div id="menu_btn-N" class="menu-btn"></div>
 
-<div id="menu_btn-1" class="menu-btn"></div>
+    <div id="context_menu-N" class="context-menu context-menu--hidden">
+        <div id="context_btn_del-N" class="context-btn context-btn--del"></div>
+        <div id="context_btn_target-N" class="context-btn context-btn--target"></div>
+        <div id="context_btn_down-N" class="context-btn context-btn--down"></div>
+        <div id="context_btn_up-N" class="context-btn context-btn--up"></div>
+        <div id="context_btn_color-N" class="context-btn context-btn--color"></div>
+    </div>
 
-<div id="context_menu-1" class="context-menu context-menu--hidden">
-    <div id="context_btn_del-1" class="context-btn context-btn--del"></div>
-    <div id="context_btn_target-1" class="context-btn context-btn--target"></div>
-    <div id="context_btn_down-1" class="context-btn context-btn--down"></div>
-    <div id="context_btn_up-1" class="context-btn context-btn--up"></div>
-    <div id="context_btn_color-1" class="context-btn context-btn--color"></div>
-</div>
-
-<div id="color_menu-1" class="color-menu color-menu--hidden">
-    <div id="color_btn_red-1" class="color-btn color-btn--red"></div>
-    <div id="color_btn_yellow-1" class="color-btn color-btn--yellow"></div>
-    <div id="color_btn_green-1" class="color-btn color-btn--green"></div>
-    <div id="color_btn_none-1" class="color-btn color-btn--blue"></div>
-</div>
-
+    <div id="color_menu-N" class="color-menu color-menu--hidden">
+        <div id="color_btn_red-N" class="color-btn color-btn--red"></div>
+        <div id="color_btn_yellow-N" class="color-btn color-btn--yellow"></div>
+        <div id="color_btn_green-N" class="color-btn color-btn--green"></div>
+        <div id="color_btn_none-N" class="color-btn color-btn--blue"></div>
+    </div>
 </div> */
 
 function createItem(obj){

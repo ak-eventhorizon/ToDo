@@ -96,8 +96,20 @@
 
 ### addEventListeners.js
 
-***todo***
+Модуль для навешивания обработчиков событий на все элементы приложения.
 
-***
+**addEventListenersOnItem(obj)** - добавляет все необходимые обработчики событий на элемент списка (со всеми вложенными кнопками, полями и меню). Параметры требуемого пункта списка передаются в функцию в объекте `obj`:
+```JavaScript
+{
+    id: number,
+    order: number,
+    color: 'red' | 'yellow '| 'green' | 'blue' | 'none',
+    content: 'string up to 100 chars',
+    checked: boolean,
+    target: boolean
+}
+```
 
-https://paulradzkov.com/2014/markdown_cheatsheet/
+**addEventListenersOnAddBtn()** - добавляет обработчик событий на кнопку добавления нового элемента `button#main-btn`.
+
+**addEventListenersOnClearBtn()** - добавляет обработчик событий на кнопку очистки всего списка `button#clear-btn`.

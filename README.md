@@ -1,4 +1,4 @@
-# ToDo List
+# ToDo List v1.0
 
 ## О приложении
 
